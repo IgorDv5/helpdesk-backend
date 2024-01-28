@@ -30,7 +30,7 @@ public class ClienteResource {
 	private ClienteService service;
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<ClienteDTO> findById(@PathVariable Integer id) {
+	public ResponseEntity<ClienteDTO> findById(@PathVariable Integer id) { // PathVariable:variavel que vem da URL
 		Cliente obj = service.findById(id);
 		return ResponseEntity.ok().body(new ClienteDTO(obj));
 	}
@@ -49,8 +49,8 @@ public class ClienteResource {
 		return ResponseEntity.created(uri).build();
 	}
 
-	@PutMapping(value = "/{id}")
-	public ResponseEntity<ClienteDTO> update(@PathVariable Integer id, @Valid @RequestBody ClienteDTO objDTO) {
+	@PutMapping(value = "/{id}") // PathVariable:variavel que vem da URL
+	public ResponseEntity<ClienteDTO> update(@PathVariable Integer id, @Valid @RequestBody ClienteDTO objDTO) { 
 		Cliente obj = service.update(id, objDTO);
 		return ResponseEntity.ok().body(new ClienteDTO(obj));
 	}

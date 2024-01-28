@@ -30,7 +30,7 @@ public class TecnicoResource {
 	private TecnicoService service;
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) {
+	public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) { // PathVariable:variavel que vem da URL
 		Tecnico obj = service.findById(id);
 		return ResponseEntity.ok().body(new TecnicoDTO(obj));
 	}
