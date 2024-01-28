@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.igor.helpdesk.domain.enums.Perfil;
 
 @Entity
@@ -13,6 +14,7 @@ public class Tecnico extends Pessoa {
 
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore //Protege Da serializacao ,ignora esse campo para mim
 	@OneToMany(mappedBy = "tecnico") // Esta sendo Mapeado pelo tecnico
 	private List<Chamado> chamados = new ArrayList<>(); // Já Recebe Valor para nao dar erro futuro
 
